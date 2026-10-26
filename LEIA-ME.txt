@@ -1,0 +1,284 @@
+ABECEDÁRIO GALÁCTICO — versão final (antes "Trilha dos Sons")
+================================================================
+
+Jogo de consciência fonológica para crianças (Phaser 3), com área do professor e do administrador,
+banco de dados de verdade, atividade de falar no microfone e o visual novo do protótipo.
+
+----------------------------------------------------------------
+1. JEITO MAIS RÁPIDO DE VER O JOGO (modo local, sem banco)
+----------------------------------------------------------------
+Dê dois cliques em index.html. Com js/config.js vazio, o jogo fica no MODO LOCAL:
+os dados ficam só neste navegador e já vêm contas de demonstração:
+   Aluno ......... joao / 1234
+   Aluno com todas as fases  rafael / 1234   (Rafael Nogueira: TODAS as fases liberadas, para testar e apresentar)
+   Professora .... prof.ana / 123456
+   Administrador . admin / admin123
+O modo local é só para testar. Para gravar tudo de verdade, ligue o banco (parte 2).
+
+----------------------------------------------------------------
+2. LIGAR O BANCO DE DADOS (Supabase — gratuito)  ~10 minutos
+----------------------------------------------------------------
+O banco guarda: usuários (nome, id, e-mail, login e senha criptografada), turmas, atividades do professor,
+progresso de cada aluno (fases, estrelas, figurinhas, cor de Lumi) e cada partida jogada (acertos, erros, tempo,
+o que a criança falou no microfone).
+
+ 1) Entre em https://supabase.com, clique em "Start your project" e crie uma conta (pode ser com o GitHub ou e-mail).
+ 2) Clique em "New project". Dê um nome (ex.: abecedario), crie uma senha para o banco (guarde-a) e escolha
+    a região "South America (São Paulo)". Clique em "Create new project" e espere uns 2 minutos.
+ 3) No menu da esquerda, abra "SQL Editor" > "New query". Abra o arquivo banco/supabase_instalar.sql
+    (no Bloco de Notas), copie TUDO, cole no SQL Editor e clique em "Run".
+    Deve aparecer "Success. No rows returned". (Pode rodar de novo no futuro: não apaga nada.)
+ 4) Copie os dois dados de ligação:
+    - Project URL: aparece na página inicial do projeto (ou em Settings > Data API). Ex.: https://abcd1234.supabase.co
+    - Chave pública: Settings (engrenagem) > API Keys > "Publishable key" (começa com sb_publishable_).
+      Projetos antigos: aba "Legacy API keys" > "anon public" (começa com eyJ...). As duas servem.
+    ATENÇÃO: nunca use a chave "secret" / "service_role" no jogo.
+ 5) Abra js/config.js no Bloco de Notas e cole:
+        SUPABASE_URL: 'https://abcd1234.supabase.co',
+        SUPABASE_CHAVE: 'sb_publishable_xxxxxxxx',
+    Salve.
+ 6) Abra o jogo > "Sou professor". Como o banco está vazio, aparece "Primeiro acesso": crie a conta do
+    administrador (nome, e-mail, login e senha). Pronto, você já está dentro.
+ 7) (Opcional) No Painel geral, clique em "Criar dados de exemplo": cria turmas, professores (prof.ana,
+    prof.carlos, prof.bia — senha 123456), 18 alunos (ex.: joao / 1234), o aluno Rafael Nogueira (rafael / 1234,
+    com todas as fases liberadas) e partidas, para você ver os painéis.
+    Depois, cadastre as turmas, os professores e os alunos de verdade.
+
+QUEM JÁ TINHA INSTALADO O BANCO: rode banco/supabase_instalar.sql de novo (SQL Editor > Run). Ele não
+apaga nada: só tira a senha por figuras e acrescenta a opção "Liberar todas as fases" no cadastro do aluno.
+
+Onde ver os dados: no Supabase, "Table Editor" > tabelas usuarios, turmas, atividades, progresso, sessoes.
+As senhas aparecem como $2a$08$... (criptografadas: ninguém consegue ler, só conferir).
+
+Segurança: as tabelas ficam fechadas (Row Level Security). O jogo só fala com o banco por funções que
+conferem quem está pedindo: professor só vê e mexe nas próprias turmas; aluno só grava as próprias partidas;
+depois de 8 senhas erradas, o login fica bloqueado por 5 minutos.
+
+Plano gratuito do Supabase: 500 MB de banco (dá para milhares de alunos). Projetos gratuitos que ficam
+1 semana sem uso são pausados; é só entrar no Supabase e clicar em "Restore". Confira os limites atuais em
+supabase.com/pricing.
+
+Sem internet: o aluno continua jogando. As partidas ficam guardadas no aparelho e vão para o banco
+quando a internet volta. A tela de resultado mostra "salvo no banco" ou "guardado no aparelho".
+
+----------------------------------------------------------------
+3. COLOCAR O JOGO NA INTERNET (celulares, tablets e microfone)
+----------------------------------------------------------------
+O microfone só funciona em sites https:// (ou no próprio computador, em http://localhost).
+ - Mais fácil (grátis): https://app.netlify.com/drop — arraste a pasta inteira do jogo para a página.
+   Em segundos você recebe um endereço https://... para abrir em qualquer celular ou computador.
+ - Ou GitHub Pages (grátis): crie um repositório, envie os arquivos e ative Pages nas configurações.
+ - Só no seu computador, com microfone: dê dois cliques em ferramentas/abrir_jogo_windows.bat
+   (precisa do Python; ele abre http://localhost:8080).
+
+----------------------------------------------------------------
+4. A VOZ DE LUMI (o que mudou)
+----------------------------------------------------------------
+ANTES: a voz do próprio navegador (Web Speech API): "Microsoft Francisca Online (Natural)" no Edge,
+"Google português do Brasil" no Chrome, "Luciana" no iPhone/Mac. Ela muda de aparelho para aparelho,
+às vezes é robótica e engasga nas sílabas soltas. (Havia um gerador opcional com a Francisca, que não era usado
+pelo jogo para montar frases.)
+
+AGORA: falas GRAVADAS com DUAS vozes neurais da Microsoft, gratuitas e sem cadastro:
+   Francisca (pt-BR-FranciscaNeural, feminina) e Antonio (pt-BR-AntonioNeural, masculina).
+Lumi não é menino nem menina: pode falar com qualquer uma das duas vozes. Na tela "Sons do jogo" (nota musical
+nas Boas-vindas), o botão da voz troca entre "Voz gravada: Francisca" e "Voz gravada: Antonio" (a escolha fica
+guardada no aparelho). O jogo monta as frases com os pedaços gravados ("Toque nas figuras que começam com" +
+"a letra M").
+COM AS GRAVAÇÕES, A VOZ DO NAVEGADOR (a "moça do Google" no Chrome) NUNCA É USADA. O que não dá para gravar
+antes vira uma frase genérica gravada:
+ - Boas-vindas: "Boas-vindas! Que bom te ver!" (o nome do aluno fica só escrito no balão);
+ - Microfone: quando a palavra que a criança falou não está no jogo, Lumi diz "Muito bem!" (acertou) ou
+   "Tente novamente!" (errou);
+ - Atividade do professor "Escolher a figura": as perguntas sugeridas são faladas; uma pergunta escrita de outro
+   jeito fica na tela e Lumi diz "Escute a pergunta e toque na figura certa.";
+ - "Contar palavras": o professor escolhe a frase numa lista de frases já gravadas.
+Sem gravações, o jogo usa as vozes Francisca e Antonio do próprio navegador (o Microsoft Edge tem as duas) ou,
+no Chrome, a melhor voz em português do aparelho, até você gerar as gravações.
+
+SÍLABAS SEM ENGASGO:
+ - Palavras separadas ("cá... vá... lô") são gravadas DE UMA VEZ SÓ: a voz já fala pausado, sem emendar
+   arquivos, e o jogo acende cada bloco na hora exata de cada sílaba.
+ - O jogo baixa as gravações da rodada antes de precisar delas, corta o silêncio do começo e do fim de
+   cada arquivo e toca as partes coladas (Web Audio).
+ - R forte certo ("rá, ré, rí, rô, rú"): o pedido vai marcado como português do Brasil e cada sílaba solta é
+   gravada dentro de uma frase ("A sílaba é: rá."); o jogo toca só a sílaba.
+ - Na velocidade "devagar" ou "rápida" (tela Sons) e com o jogo aberto por dois cliques no index.html,
+   o jogo usa o tocador comum, que funciona igual, mas pode ter pequenas pausas entre as partes.
+
+COMO GERAR AS GRAVAÇÕES (uma vez, no seu computador, com internet; leva 8 a 15 minutos, as duas vozes):
+ - Windows: instale o Python 3 (python.org — marque "Add Python to PATH") e dê dois cliques em
+   ferramentas/gerar_vozes_windows.bat
+ - Mac/Linux: no terminal, na pasta do jogo:  sh ferramentas/gerar_vozes_mac_linux.sh
+ Ele cria as pastas audio/falas/francisca/ e audio/falas/antonio/ (cerca de 600 MP3 em cada uma) e atualiza
+ js/data/falas.js. Publique a pasta audio junto. Gravações antigas (de outras vozes) são apagadas sozinhas.
+ No GitHub, apague a pasta audio antiga do repositório e envie a nova, junto com js/data/falas.js.
+ Enquanto não gerar, o jogo usa a voz do navegador (no Microsoft Edge ela é a mais natural).
+
+Outros modelos gratuitos avaliados:
+ - Piper (offline, MIT): bom, mas todas as vozes em português do Brasil são masculinas (cadu, edresson, faber, jeff).
+ - Kokoro (Apache-2.0): tem voz feminina em pt-BR (pf_dora), mas o próprio projeto avisa que o suporte
+   a outras línguas além do inglês ainda é fraco.
+ - Google Cloud Text-to-Speech: excelente e com cota grátis mensal, mas exige conta com cartão de crédito.
+ - edge-tts (escolhido): voz neural da Microsoft, grátis, sem conta. Não é um produto oficial da Microsoft;
+   para uso comercial, confira os termos de uso. Também dá para gravar com a voz de uma professora,
+   salvando os MP3 com os mesmos nomes da pasta audio/falas/ (as falas comuns; as sílabas e as palavras
+   separadas usam marcas de tempo guardadas em js/data/falas.js).
+
+----------------------------------------------------------------
+5. ATIVIDADE NOVA: FALAR NO MICROFONE
+----------------------------------------------------------------
+A criança toca no microfone (ele fica vermelho), fala, e o jogo reconhece o que ela disse.
+ - Uma fase no fim de cada mundo (1-5, 2-5, 3-5, 4-5 e 5-5): dizer o nome da figura (com a letra dela à mostra),
+   falar uma palavra que começa com uma sílaba, que rima e que começa com uma letra, e ler uma palavra em voz alta.
+ - Na área do professor: tipo de atividade "Falar a palavra" (repetir depois de Lumi ou dizer o nome sozinha).
+ - O resultado conta no painel do professor e mostra o que o jogo ouviu ("ouvimos: caro").
+ - É tolerante com a fala das crianças (aceita "caro" para "carro"; não aceita "gato" para "pato").
+ - Funciona no Google Chrome e no Microsoft Edge (precisa de internet) e no Safari com o Ditado ligado.
+   Se o navegador não reconhecer fala, se o microfone for bloqueado ou faltar internet, entra o
+   "modo adulto confere": o jogo grava, toca de volta e um adulto toca em "Certo" ou "Ainda não".
+
+----------------------------------------------------------------
+6. O QUE MUDOU NESTA VERSÃO
+----------------------------------------------------------------
+Novo: "PROFESSORA" VIROU "PROFESSOR" NO JOGO: o botão agora é "Atividades do professor" e as falas de Lumi
+dizem "o professor mandou", "peça ajuda para o professor" etc. (há professores homens também).
+PRECISA GERAR AS VOZES DE NOVO para essas falas (só as alteradas são gravadas).
+
+Novo: MUNDO 5 — GALÁXIA DAS PALAVRAS (leitura de palavras):
+- A criança LÊ a palavra escrita (Lumi não fala a palavra antes), com as palavras do banco do jogo:
+    5-1 Leia e ache a figura ...... lê a palavra e toca na figura certa
+    5-2 Qual é a palavra? ......... vê a figura e toca na palavra escrita certa
+    5-3 Está escrito certo? ....... vê a figura e uma palavra: está escrito o nome dela? (joinha)
+    5-4 Figura e palavra .......... liga cada figura à palavra escrita
+    5-5 Leia em voz alta .......... lê a palavra e fala no microfone (depois de acertar, a figura aparece)
+  As opções erradas são palavras de escrita PARECIDA (GATO, PATO, RATO), para a criança ler com atenção e não
+  adivinhar. 5-1 e 5-2 usam palavras de duas sílabas; 5-3 a 5-5, também as de três.
+- Agora são 5 mundos, 25 fases e 25 figurinhas. A habilidade "Leitura" aparece nos painéis e relatórios.
+- Área do professor: novo tipo de atividade "Ler a palavra" (ler e achar a figura, achar a palavra escrita,
+  está escrito certo? e ler em voz alta) e o critério "Palavra escrita" em "Ligar os pares". O professor só
+  escolhe as figuras; as palavras parecidas o jogo escolhe sozinho.
+- PRECISA GERAR AS VOZES DE NOVO (só as falas novas das instruções de leitura).
+
+Ajustes de outubro, 3ª rodada (para apresentar aos professores):
+- Fases PRÉ-DEFINIDAS: cada fase tem sempre as mesmas rodadas (mesmas palavras, na mesma ordem), para todos os
+  alunos e em todas as vezes que jogam. As figuras só mudam de lugar na tela.
+- Retirado o mundo "Nebulosa do Eco" (aliteração). A Constelação das Letras virou o Mundo 4: são 4 mundos,
+  20 fases e 20 figurinhas. As partidas antigas da Nebulosa aparecem nos relatórios como "fase retirada".
+- Separação em sílabas (Bater palmas, Juntar pedacinhos, Palavras de três pedaços, Como começa?, Fale uma palavra
+  com...): só palavras sem R no meio ou no fim (as que começam com R, como rato, continuam) e sem "moeda".
+  Na área do professor, essas figuras não aparecem para "Contar sílabas" e "Montar a palavra".
+- Retiradas as figuras coco e panela.
+- Voz: com as gravações, nunca mais a voz do navegador (veja a parte 4). Lumi fala o nome da última figura
+  achada (Planetas da letra), do último par ligado (Ligar) e da última figura guardada (Caixas). No Caça-letras,
+  a letra é dita uma vez só (para ouvir de novo, toque no alto-falante). Nas Figurinhas, Lumi explica uma vez só
+  (trocar de cor não repete a fala).
+- Demonstrações (tela "Olha como eu faço!"): cada fase tem a sua, com um exemplo certo (ex.: 4-3 liga a figura à
+  letra; 4-4 completa _ato com "g"; 3-3 leva a figura que rima para a caixa verde).
+- Atividade do professor: saiu o campo "O que Lumi fala antes de começar".
+- Volta para onde parou: ao sair de uma fase (ou da conta) e entrar de novo, o mapa abre no mundo da última fase
+  aberta e o "Continuar" leva para ela (ou para a seguinte, se ela já foi concluída).
+- E-mail obrigatório em todos os cadastros (aluno: e-mail do responsável).
+- PRECISA GERAR AS VOZES DE NOVO (só grava as falas novas, leva 1 ou 2 minutos): dois cliques em
+  ferramentas/gerar_vozes_windows.bat. Se você copiou esta versão por cima da pasta antiga, a pasta audio e o
+  arquivo ferramentas/tempos_gravacoes.json continuam lá e são aproveitados.
+- Quem já instalou o banco: rode banco/supabase_instalar.sql de novo (não apaga nada; passa a exigir o e-mail).
+
+Ajustes de outubro, 2ª rodada (pedidos da equipe):
+- Retirada a fase "Começa igual" (antiga 4-2: "qual figura começa com o mesmo som de...").
+- Lumi sem gênero: os textos não tratam Lumi como menino nem menina, e a voz pode ser Francisca ou Antonio.
+- Vozes: só Francisca e Antonio (gravadas e do navegador). Veja a parte 4. É preciso rodar
+  ferramentas/gerar_vozes_windows.bat de novo e enviar de novo a pasta audio e o arquivo js/data/falas.js.
+- Planetas da letra (1-4): a frase ficou curta — "Toque nas figuras que começam com a letra M".
+- Figuras redesenhadas, mais fáceis de reconhecer: abacate (cortado, com caroço), foguete, porta, peixe e as
+  figuras com M (melancia em fatia, moeda, maçã e morango).
+- Palavras com acento aparecem com o acento na correção da fala ("ouvimos: maçã", "avião", "jacaré").
+- Relatórios refeitos:
+     * filtro de turma no próprio relatório (o mesmo do alto da tela);
+     * "Turmas e alunos": cada turma com o resumo dela (partidas, % de acerto, maior dificuldade, atividades
+       respondidas, quem está com dificuldade); clique na turma e aparecem os alunos dela, um por um;
+     * também dá para ver "Todos os alunos", "Fases" e "Habilidades"; a planilha (CSV) baixa o que está na tela;
+     * aparecem também os alunos que não jogaram no período.
+- Gráficos maiores e legíveis em todas as telas (barras feitas em HTML: a letra não encolhe mais),
+  com destaque para "Por habilidade". O gráfico "Situação da turma" virou uma barra única com uma linha por
+  grupo (com dificuldade, atenção, em dia, ainda não jogou), com número, porcentagem e o nome de quem está
+  em cada grupo (clique no nome para abrir o aluno).
+- Desempenho do aluno: histórico de sessões na largura toda, 10 por página, sem rolagem lateral; a lista de
+  erros também tem páginas.
+- Atividades do professor: em cada aluno aparece "Respondeu" (com estrelas, acerto e quando) ou
+  "Ainda não respondeu"; o mesmo na tela de resultados da atividade e no relatório (ex.: "2 de 4").
+- Retirados os botões de imprimir / PDF (relatório, desempenho, aluno e cartão de acesso).
+
+Atualização de outubro (pedidos da equipe):
+- O nome da mascote agora é LUMI em todas as telas, falas e textos (antes: Bip).
+- MUNDO 1 NOVO — "Planeta do Alfabeto": reconhecer as letras e ligar letra, som e figura.
+     1-1 Caça-letras ........... letras flutuam em estrelas; a criança toca em todas iguais à letra do cartão
+     1-2 Maiúscula e minúscula . liga cada letra maiúscula à mesma letra minúscula
+     1-3 Letra e figura ........ toca na figura que começa com a letra do cartão
+     1-4 Planetas da letra ..... figuras flutuam em planetas; toca em todas que começam com a letra
+     1-5 Fale o nome ........... vê a figura e a letra dela e fala o nome no microfone
+  (As antigas fases de contar palavras continuam como modelo de atividade do professor.)
+- Montar palavras: a ÚLTIMA sílaba agora é falada (antes ela era pulada e o jogo ia direto para a palavra).
+- Área do professor com mais espaço entre os elementos (cartões, tabelas, listas, formulários e janelas).
+- Login só com usuário e senha: a senha por figuras foi retirada (era fácil de adivinhar).
+- Sem textos de "modo local / teste / demonstração" nas telas.
+- Página nova "Desempenho" (professor e administrador):
+     * resumo das principais dificuldades da turma, com quem está abaixo de 60% e uma sugestão para a sala;
+     * mapa de desempenho: cada aluno x cada habilidade (verde / amarelo / vermelho);
+     * gráfico de acerto de cada aluno e os itens que mais derrubam a turma (com o que responderam).
+- Ao abrir um aluno: lista de TODOS os erros dele (data, fase, item e o que a criança fez no lugar) e,
+  no histórico, clique numa sessão para ver cada resposta. O jogo agora grava a resposta errada em cada modelo.
+- Todas as fases liberadas: no cadastro do aluno, marque "Liberar todas as fases".
+  Já vem pronto o aluno Rafael Nogueira (rafael / 1234), com todas as fases liberadas.
+
+Versão final:
+- Banco de dados de verdade (Supabase), com primeiro acesso, dados de exemplo e funcionamento sem internet.
+- Atividade de falar (5 fases novas) e modelo "Falar a palavra".
+- Visual do protótipo Abecedário Galáctico em todas as telas: fundos do espaço, Lumi (mascote do jogo; antes Bip e Bibo)
+  em 5 cores e 6 estados, logo, botões com degrau, cartas com borda lilás, ícones e fontes Fredoka/Nunito
+  guardadas no jogo (funcionam sem internet).
+- Blocos de montar que ENCAIXAM PERFEITAMENTE: a peça desliza até a vaga e fica exatamente do tamanho dela.
+- "Meu perfil" para professor e administrador: ver os dados e trocar nome, e-mail e senha (pede a senha atual).
+- Administrador pode criar outros administradores (Professores > Cadastrar > Tipo de conta).
+- Cartão de acesso do aluno (login e senha) pode ser consultado e copiado a qualquer momento, e "Gerar nova senha".
+- Atividade: só o botão de pausa no canto (a pausa tem Continuar, Ouvir e Mapa/Sair), como no protótipo.
+- Tela "Carregando..." e aviso com botão de recarregar se algo impedir o jogo de abrir (nunca mais tela lisa).
+- Os arquivos agora terminam com ?v=2026.10.23 no index.html: o navegador baixa a versão nova sozinho
+  (antes, às vezes ele mostrava arquivos antigos guardados).
+
+----------------------------------------------------------------
+7. ARQUIVOS NOVOS
+----------------------------------------------------------------
+banco/supabase_instalar.sql ....... cria as tabelas e as funções do banco (rodar no SQL Editor do Supabase)
+js/config.js ...................... endereço e chave do banco (você preenche)
+js/core/nuvem.js .................. conversa com o banco (chama as funções do Supabase)
+js/data/db.js ..................... (reescrito) dados do jogo: modo banco ou modo local, fila sem internet
+js/core/escuta.js ................. o microfone: reconhecimento de fala e conferência da resposta
+js/game/t08_modelo7_falar.js ...... a atividade de falar
+js/game/t08_modelo8_estrelas.js ... Mundo 1: letras e figuras flutuando (Caça-letras e Planetas da letra)
+js/admin/t28_perfil.js ............ página "Meu perfil"
+js/admin/t29_desempenho.js ........ página "Desempenho": dificuldades da turma e mapa por aluno
+js/assets_galactico.js ............ imagens do tema (fundos, Lumi, logo, enfeites) em base64
+js/core/icones_galactico.js ....... ícones do protótipo
+css/tema-galactico.css ............ visual da área do professor
+css/fontes.css .................... fontes Fredoka e Nunito dentro do jogo
+ferramentas/gerar_vozes.py (+ .bat/.sh)  grava as falas com as vozes neurais Francisca e Antonio
+ferramentas/listar_falas.js ....... monta a lista de falas (ferramentas/falas.txt) — para quem mudar os textos
+ferramentas/abrir_jogo_windows.bat  abre o jogo em http://localhost (microfone funcionando)
+licencas/ ......................... licenças das fontes (OFL) e das artes da Kenney (CC0)
+
+O documento "Como o código funciona" explica cada arquivo e cada bloco de linhas.
+
+----------------------------------------------------------------
+8. PROBLEMAS COMUNS
+----------------------------------------------------------------
+- "O banco de dados ainda não foi preparado": rode banco/supabase_instalar.sql no SQL Editor (parte 2, passo 3).
+- "O Supabase não aceitou a chave": confira SUPABASE_URL e SUPABASE_CHAVE em js/config.js (sem espaços,
+  entre aspas simples, com vírgula no fim da linha).
+- Parou em "Carregando..." por muito tempo: sem internet, ou projeto do Supabase pausado (entre lá e clique em Restore).
+- Microfone não liga: use https:// (parte 3) ou ferramentas/abrir_jogo_windows.bat, e permita o microfone
+  no cadeado ao lado do endereço do site. Use Chrome ou Edge.
+- Voz robótica: gere as gravações (parte 4) ou use o Microsoft Edge.
+- Esqueci a senha: o administrador cria uma nova em Professores > Editar. Depois troque em Meu perfil.
+  Se o administrador esquecer a própria senha: no Supabase > SQL Editor rode
+     update usuarios set senha_hash = extensions.crypt('NovaSenha123', extensions.gen_salt('bf', 8)) where login = 'admin';

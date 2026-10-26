@@ -1,0 +1,650 @@
+# Falas de Lumi para gravar com voz neural (uma por linha). Gerado por ferramentas/listar_falas.js.
+# Pode acrescentar falas à mão. Formatos:
+#   texto                       fala comum
+#   chave|texto falado          quando a pronúncia precisa de ajuda
+#   [sílaba] rá                 sílaba solta (gravada dentro de "A sílaba é: rá.")
+#   [sílabas] cá | vá | lô      palavra separada em sílabas, gravada de uma vez só
+#   [palavras] o | gato | dorme frase falada palavra por palavra, gravada de uma vez só
+Quer mesmo sair?
+Seu progresso está guardado!
+Oi! Se você é aluno, toque no quadro amarelo!
+Oi!
+Se você é aluno, toque no quadro amarelo!
+Digite seu nome de usuário e sua senha.
+Se precisar, peça ajuda para o professor.
+Hmm, não deu certo. Chame seu professor!
+Hmm, não deu certo.
+Chame seu professor!
+Esta entrada é para alunos. Professores usam o botão Sou professor.
+Esta entrada é para alunos.
+Professores usam o botão Sou professor.
+Estou sem internet agora. Peça ajuda para o professor.
+Estou sem internet agora.
+Peça ajuda para o professor.
+Muitas tentativas! Espere um pouquinho e tente de novo.
+Muitas tentativas!
+Espere um pouquinho e tente de novo.
+Seu acesso está desligado. Chame seu professor!
+Seu acesso está desligado.
+O jogo ainda não está ligado ao banco de dados. Chame o professor.
+O jogo ainda não está ligado ao banco de dados.
+Chame o professor.
+O professor mandou
+atividades novas
+uma atividade nova
+Boas-vindas! Que bom te ver!
+Boas-vindas!
+Que bom te ver!
+Vamos continuar a nossa trilha?
+Toque na fase que está brilhando para jogar!
+Essa fase ainda está trancada. Termine a fase anterior para abrir!
+Essa fase ainda está trancada.
+Termine a fase anterior para abrir!
+Olha como eu faço!
+Pausa! Quando quiser, toque no botão amarelo para continuar.
+Pausa!
+Quando quiser, toque no botão amarelo para continuar.
+Muito bem!
+Isso!
+Acertou!
+Legal!
+Que ouvido bom!
+Mandou bem!
+Vamos tentar de novo?
+Quase! Tenta outra vez.
+Quase!
+Tenta outra vez.
+Escuta de novo. Você consegue!
+Escuta de novo.
+Você consegue!
+Vamos para a próxima!
+Quantos pedacinhos tem?
+É esta aqui
+a letra
+Qual letra falta para escrever
+Monte a palavra
+Muito bem! Tudo guardado!
+Tudo guardado!
+Isso mesmo!
+Muito bem! Ligou tudo!
+Ligou tudo!
+Aqui está escrito
+combina com
+Uma dica
+Agora fale você.
+rima com
+começa como
+Essa é a mesma palavra! Fale outra.
+Essa é a mesma palavra!
+Fale outra.
+Tente novamente! Fale bem alto
+Tente novamente!
+Fale bem alto
+A palavra é
+Não ouvi nada. Toque no microfone e fale bem alto!
+Não ouvi nada.
+Toque no microfone e fale bem alto!
+O microfone está bloqueado. Peça para um adulto permitir o microfone no navegador.
+O microfone está bloqueado.
+Peça para um adulto permitir o microfone no navegador.
+Não encontrei o microfone. Peça ajuda para um adulto.
+Não encontrei o microfone.
+Peça ajuda para um adulto.
+Para eu escutar, precisa de internet.
+Este navegador não consegue me deixar escutar.
+O microfone não funcionou agora.
+Vamos fazer assim: você fala e um adulto confere.
+Vamos de novo! Fale
+Vamos de novo!
+Tudo bem! Vamos para a próxima.
+Tudo bem!
+Começam com
+Você achou todas!
+Esse é
+Começa com
+Essa é
+Olha: estas começam com
+estava aqui.
+Tentar de novo
+Jogar de novo
+Parabéns! Você ganhou
+Parabéns!
+Você ganhou
+Seu professor vai ficar feliz!
+Você está aprendendo muito! Vamos tentar de novo?
+Você está aprendendo muito!
+estrelas para liberar essa cor!
+Aqui ficam suas figurinhas! Cada fase nova que você termina te dá uma. Você também pode mudar a minha cor!
+Aqui ficam suas figurinhas!
+Cada fase nova que você termina te dá uma.
+Você também pode mudar a minha cor!
+Aqui você liga e desliga os sons, e escolhe a velocidade e a voz de Lumi.
+Oi! Eu sou Lumi. Vamos brincar com os sons das palavras?
+Eu sou Lumi.
+Vamos brincar com os sons das palavras?
+Este navegador só tem esta voz em português.
+Toque num cartão para começar.
+Toque num cartão para jogar de novo.
+Atividade do professor!
+Ainda não tem atividade do professor. Quando ele mandar, aparece aqui! Que tal jogar no mapa?
+Ainda não tem atividade do professor.
+Quando ele mandar, aparece aqui!
+Que tal jogar no mapa?
+Estas são as atividades que o seu professor preparou!
+uma nova
+Toque em uma para jogar.
+Sem internet: seu progresso fica guardado.
+Ops, a internet sumiu! Pode continuar brincando: seu progresso fica guardado.
+Ops, a internet sumiu!
+Pode continuar brincando: seu progresso fica guardado.
+Que figura é essa? Aperte o microfone e fale o nome dela.
+Que figura é essa?
+Aperte o microfone e fale o nome dela.
+Aperte o microfone e fale
+Leia a palavra e toque na figura certa.
+Toque na palavra escrita com o nome desta figura.
+Olhe a figura e leia a palavra. Está escrito o nome desta figura?
+Olhe a figura e leia a palavra.
+Está escrito o nome desta figura?
+Leia a palavra e fale bem alto no microfone!
+Toque em todas as estrelas com
+Ligue cada letra maiúscula à mesma letra minúscula.
+Qual figura começa com
+Toque nas figuras que começam com
+Essa figura começa com
+Qual foi a última palavra?
+Essas palavras rimam?
+Qual figura rima com
+Leve para a caixa verde as figuras que rimam com
+Ligue as figuras que rimam.
+Começam com o mesmo som?
+Qual figura começa com o mesmo som que
+Ligue as figuras que começam com o mesmo som.
+Leve para a caixa verde as figuras que começam como
+Qual figura começa com o som...
+Com que letra começa
+Ligue cada figura à letra do seu primeiro som.
+Fale uma palavra que começa com...
+Fale uma palavra que rima com
+Fale outra palavra que começa com o mesmo som de
+Fale uma palavra que começa com a letra
+Ligue cada figura à palavra escrita com o nome dela.
+Escute a frase e toque no tambor uma vez para cada palavra. Depois toque no botão verde.
+Escute a frase e toque no tambor uma vez para cada palavra.
+Depois toque no botão verde.
+Escute a palavra e toque no tambor para cada pedacinho, como bater palmas! Depois toque no botão verde.
+Escute a palavra e toque no tambor para cada pedacinho, como bater palmas!
+Olhe a letra do cartão e toque em todas as estrelas que têm essa mesma letra.
+Toque numa letra maiúscula e depois na mesma letra minúscula para ligar as duas.
+Olhe a letra do cartão e toque na figura que começa com ela.
+Toque nas figuras que começam com a letra do cartão.
+Olhe a figura e a letra. Toque no microfone, espere ele ficar vermelho e fale o nome da figura!
+Olhe a figura e a letra.
+Toque no microfone, espere ele ficar vermelho e fale o nome da figura!
+Escute com atenção e toque na figura certa.
+Escute o som e toque na figura que começa com ele.
+Olhe a figura e toque na letra com que o nome dela começa.
+Toque numa figura e depois na letra do primeiro som dela.
+Olhe a letra, toque no microfone e fale uma palavra que começa com ela!
+Arraste os pedacinhos para montar o nome da figura.
+Arraste a letra que falta para completar a palavra.
+Escute o pedacinho e toque na figura que começa com ele.
+Escute a palavra e toque na figura que rima com ela.
+Escute as duas palavras. Se elas rimam, toque no joinha para cima. Se não, no joinha para baixo.
+Escute as duas palavras.
+Se elas rimam, toque no joinha para cima.
+Se não, no joinha para baixo.
+Escute as duas palavras. Se começam com o mesmo som, toque no joinha para cima. Se não, no joinha para baixo.
+Se começam com o mesmo som, toque no joinha para cima.
+Leve para a caixa verde as figuras que rimam com a figura de cima. As outras vão para a caixa laranja.
+Leve para a caixa verde as figuras que rimam com a figura de cima.
+As outras vão para a caixa laranja.
+Leve para a caixa verde as figuras que começam com o mesmo som da figura de cima. As outras vão para a caixa laranja.
+Leve para a caixa verde as figuras que começam com o mesmo som da figura de cima.
+Toque numa figura e depois na figura que rima com ela para ligar as duas.
+Toque numa figura e depois na figura que começa com o mesmo som para ligar as duas.
+Escute o pedacinho, toque no microfone e fale uma palavra que começa com ele!
+Escute a palavra, toque no microfone e fale outra palavra que rima com ela!
+Leia a palavra escrita e toque na figura certa.
+Olhe a figura e toque na palavra escrita com o nome dela.
+Leia a palavra. Se for o nome da figura, toque no joinha para cima. Se não for, no joinha para baixo.
+Leia a palavra.
+Se for o nome da figura, toque no joinha para cima.
+Se não for, no joinha para baixo.
+Toque numa figura e depois na palavra escrita com o nome dela.
+Leia a palavra, toque no microfone e fale a palavra bem alto!
+Toque no microfone, espere ele ficar vermelho e fale bem alto. Lumi vai escutar!
+Toque no microfone, espere ele ficar vermelho e fale bem alto.
+Lumi vai escutar!
+Escute a pergunta e toque na figura certa.
+urso
+[sílaba] úr
+[sílaba] sô
+galinha
+[sílaba] gá
+[sílaba] lí
+[sílaba] nhá
+pintinho
+[sílaba] pín
+[sílaba] tí
+[sílaba] nhô
+vaca
+[sílaba] vá
+[sílaba] cá
+jacaré
+[sílaba] já
+[sílaba] ré
+cachorro
+[sílaba] chôr
+[sílaba] rô
+pato
+[sílaba] pá
+[sílaba] tô
+elefante
+[sílaba] ê
+[sílaba] lê
+[sílaba] fân
+[sílaba] tê
+sapo
+[sílaba] sá
+[sílaba] pô
+girafa
+[sílaba] gí
+[sílaba] rá
+[sílaba] fá
+cabra
+[sílaba] brá
+gorila
+[sílaba] gô
+[sílaba] rí
+[sílaba] lá
+cavalo
+[sílaba] lô
+macaco
+[sílaba] má
+[sílaba] cô
+coruja
+[sílaba] rú
+panda
+[sílaba] pân
+[sílaba] dá
+papagaio
+[sílaba] gái
+[sílaba] ô
+pinguim
+[sílaba] guím
+porco
+[sílaba] pôr
+coelho
+[sílaba] lhô
+cobra
+baleia
+[sílaba] bá
+[sílaba] lêi
+[sílaba] á
+zebra
+[sílaba] zê
+hipopótamo
+[sílaba] hí
+[sílaba] pó
+[sílaba] tá
+[sílaba] mô
+maçã
+[sílaba] çã
+banana
+[sílaba] ná
+pão
+bolo
+[sílaba] bô
+cenoura
+[sílaba] cê
+[sílaba] nôu
+queijo
+[sílaba] quêi
+[sílaba] jô
+peixe
+[sílaba] pêi
+[sílaba] xê
+uva
+[sílaba] ú
+pizza
+[sílaba] píz
+[sílaba] zá
+milho
+[sílaba] mí
+limão
+[sílaba] mão
+pera
+[sílaba] pê
+abacaxi
+[sílaba] xí
+tomate
+melancia
+[sílaba] mê
+[sílaba] lân
+[sílaba] cí
+morango
+[sílaba] rân
+laranja
+sorvete
+[sílaba] sôr
+[sílaba] vê
+chocolate
+[sílaba] chô
+abacate
+cogumelo
+[sílaba] gú
+panqueca
+[sílaba] quê
+saco
+torta
+[sílaba] tôr
+abóbora
+[sílaba] bó
+mel
+cadeira
+[sílaba] dêi
+cama
+mesa
+sofá
+tapete
+geladeira
+[sílaba] gê
+fogão
+[sílaba] fô
+[sílaba] gão
+banheira
+[sílaba] nhêi
+planta
+[sílaba] plân
+carro
+[sílaba] cár
+trator
+[sílaba] trá
+ambulância
+[sílaba] âm
+[sílaba] bú
+caminhão
+[sílaba] nhão
+táxi
+barco
+[sílaba] bár
+navio
+[sílaba] ví
+avião
+[sílaba] ão
+nave
+foguete
+[sílaba] guê
+chave
+[sílaba] chá
+porta
+bandeira
+[sílaba] bân
+flor
+coração
+[sílaba] ção
+moeda
+árvore
+[sílaba] ár
+[sílaba] vô
+[sílaba] rê
+escada
+[sílaba] ês
+pedra
+[sílaba] drá
+castelo
+[sílaba] cás
+moinho
+[sílaba] í
+dado
+[sílaba] dô
+gato
+rato
+bola
+letra A
+a letra A
+letra B
+a letra B
+letra C
+a letra C
+letra D
+a letra D
+letra E
+a letra E
+letra F
+a letra F
+letra G
+a letra G
+letra H
+a letra H
+letra I
+a letra I
+letra J
+a letra J
+letra K
+a letra K
+letra L
+a letra L
+letra M
+a letra M
+letra N
+a letra N
+letra O
+a letra O
+letra P
+a letra P
+letra Q
+a letra Q
+letra R
+a letra R
+letra S
+a letra S
+letra T
+a letra T
+letra U
+a letra U
+letra V
+a letra V
+letra W
+a letra W
+letra X
+a letra X
+letra Y
+a letra Y
+letra Z
+a letra Z
+mmmmm
+sssss
+fffff
+lllll
+nnnnn
+zzzzz
+vvvvv
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+15
+25
+40
+não rima com
+começa com o mesmo som de
+não começa como
+combina com a letra
+Você falou
+Por exemplo
+Hmm, eu ouvi
+outra coisa
+São
+pedacinhos
+pedacinho
+palavras
+estrelas
+estrela
+Junte
+Tem
+novas
+Está escrito
+e a figura é
+Você leu
+Leia de novo, com calma!
+Qual figura começa com a sílaba
+Onde está o
+Onde está a
+E abriu uma fase nova!
+Olha
+Você ganhou uma figurinha nova para o seu álbum!
+Pato nada
+Sapo pula
+Vaca come
+Gato dorme
+Cavalo corre
+Macaco pula
+Bola rola
+Peixe nada
+O gato dorme
+A vaca come
+Eu amo banana
+O carro corre
+A bola rola
+O sapo pula
+Eu vi zebra
+Eu comi pão
+O pato come pão
+Eu gosto de uva
+O macaco come banana
+A zebra tem listras
+O barco é grande
+Eu vi um avião
+O gato viu o rato
+O coelho come a cenoura
+Eu vi um barco grande
+A vovó fez um bolo
+O sapo pulou na pedra
+Eu comi uma
+A menina viu o
+O menino chutou a
+Papai dirigiu o
+A vovó fez um
+No céu passou um
+Na fazenda tem uma
+No mar nadou uma
+Na árvore tem um
+Eu abri a
+No rio tem um
+Eu achei uma
+[sílabas] úr | sô
+[sílabas] gá | lí | nhá
+[sílabas] pín | tí | nhô
+[sílabas] vá | cá
+[sílabas] já | cá | ré
+[sílabas] cá | chôr | rô
+[sílabas] pá | tô
+[sílabas] ê | lê | fân | tê
+[sílabas] sá | pô
+[sílabas] gí | rá | fá
+[sílabas] cá | brá
+[sílabas] gô | rí | lá
+[sílabas] cá | vá | lô
+[sílabas] má | cá | cô
+[sílabas] cô | rú | já
+[sílabas] pân | dá
+[sílabas] pá | pá | gái | ô
+[sílabas] pín | guím
+[sílabas] pôr | cô
+[sílabas] cô | ê | lhô
+[sílabas] cô | brá
+[sílabas] bá | lêi | á
+[sílabas] zê | brá
+[sílabas] hí | pô | pó | tá | mô
+[sílabas] má | çã
+[sílabas] bá | ná | ná
+[sílabas] bô | lô
+[sílabas] cê | nôu | rá
+[sílabas] quêi | jô
+[sílabas] pêi | xê
+[sílabas] ú | vá
+[sílabas] píz | zá
+[sílabas] mí | lhô
+[sílabas] lí | mão
+[sílabas] pê | rá
+[sílabas] á | bá | cá | xí
+[sílabas] tô | má | tê
+[sílabas] mê | lân | cí | á
+[sílabas] mô | rân | gô
+[sílabas] lá | rân | já
+[sílabas] sôr | vê | tê
+[sílabas] chô | cô | lá | tê
+[sílabas] á | bá | cá | tê
+[sílabas] cô | gú | mê | lô
+[sílabas] pân | quê | cá
+[sílabas] sá | cô
+[sílabas] tôr | tá
+[sílabas] á | bó | bô | rá
+[sílabas] cá | dêi | rá
+[sílabas] cá | má
+[sílabas] mê | sá
+[sílabas] sô | fá
+[sílabas] tá | pê | tê
+[sílabas] gê | lá | dêi | rá
+[sílabas] fô | gão
+[sílabas] bá | nhêi | rá
+[sílabas] plân | tá
+[sílabas] cár | rô
+[sílabas] trá | tôr
+[sílabas] âm | bú | lân | cí | á
+[sílabas] cá | mí | nhão
+[sílabas] tá | xí
+[sílabas] bár | cô
+[sílabas] ná | ví | ô
+[sílabas] á | ví | ão
+[sílabas] ná | vê
+[sílabas] fô | guê | tê
+[sílabas] chá | vê
+[sílabas] pôr | tá
+[sílabas] bân | dêi | rá
+[sílabas] cô | rá | ção
+[sílabas] mô | ê | dá
+[sílabas] ár | vô | rê
+[sílabas] ês | cá | dá
+[sílabas] pê | drá
+[sílabas] cás | tê | lô
+[sílabas] mô | í | nhô
+[sílabas] dá | dô
+[sílabas] gá | tô
+[sílabas] rá | tô
+[sílabas] bô | lá
+[palavras] pato | nada
+[palavras] sapo | pula
+[palavras] vaca | come
+[palavras] gato | dorme
+[palavras] cavalo | corre
+[palavras] macaco | pula
+[palavras] bola | rola
+[palavras] peixe | nada
+[palavras] o | gato | dorme
+[palavras] a | vaca | come
+[palavras] eu | amo | banana
+[palavras] o | carro | corre
+[palavras] a | bola | rola
+[palavras] o | sapo | pula
+[palavras] eu | vi | zebra
+[palavras] eu | comi | pão
+[palavras] o | pato | come | pão
+[palavras] eu | gosto | de | uva
+[palavras] o | macaco | come | banana
+[palavras] a | zebra | tem | listras
+[palavras] o | barco | é | grande
+[palavras] eu | vi | um | avião
+[palavras] o | gato | viu | o | rato
+[palavras] o | coelho | come | a | cenoura
+[palavras] eu | vi | um | barco | grande
+[palavras] a | vovó | fez | um | bolo
+[palavras] o | sapo | pulou | na | pedra
